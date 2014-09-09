@@ -116,4 +116,30 @@ WHERE Id='E04'
 SELECT *
 FROM employee
 
+----------------------------------------------------------------------------------------------------------------------------------
+-- Ingreso de Jefes a cada empleado
+-- Se genera una nueva columna a la tabla 'employee' para ingresa un jefe a cada empleado
 
+ALTER TABLE employee
+ADD jefe char(20)
+
+-- Se actualiza la tabla 'employee' para ingresar los jefes
+
+UPDATE employee
+SET "jefe"='Andres'
+WHERE Id='E01'
+
+UPDATE employee
+SET "jefe"='Andres'
+WHERE Id='E02'
+
+UPDATE employee
+SET "jefe"='Felipe'
+WHERE Id='E03'
+
+UPDATE employee
+SET "jefe"='Anderson'
+WHERE Id='E04'
+
+SELECT *
+FROM employee
