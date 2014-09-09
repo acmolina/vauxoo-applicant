@@ -71,3 +71,49 @@ WHERE Id='E04'
 
 SELECT *
 FROM employee
+
+------------------------------------------------------------------------------------------------------------------------------------
+-- Se crea la table de hobbys
+
+CREATE TABLE employee_hobby
+(
+	Id char(3) NOT NULL,
+	Name varchar(20),
+	Description char (50)
+)
+
+INSERT INTO employee_hobby (Id,Name,Description)
+VALUES ('E01','Deportes','Realiza actividades relacionadas con deportes')
+INSERT INTO employee_hobby (Id,Name,Description)
+VALUES ('E02','Lectura','Le gusta realizar actividades de lectura')
+INSERT INTO employee_hobby (Id,Name,Description)
+VALUES ('E03','Manualidades','Actividades relacionadas con obras de arte')
+
+ALTER TABLE employee_hobby
+ADD CONSTRAINT employee_hobby_fk foreign key (Id) references employee_departament(Id)
+
+ALTER TABLE employee
+ADD hobby char(7)
+
+-- Se actuliza la tabla employee para ingresar el hobby a cada empleado
+
+UPDATE employee
+SET "hobby"='E02,E03'
+WHERE Id='E01'
+
+UPDATE employee
+SET "hobby"='E01,E02'
+WHERE Id='E02'
+
+UPDATE employee
+SET "hobby"='E01,E03'
+WHERE Id='E03'
+
+UPDATE employee
+SET "hobby"='E02,E03'
+WHERE Id='E04'
+
+SELECT *
+FROM employee
+
+
